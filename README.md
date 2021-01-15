@@ -2,9 +2,11 @@
 
 # Tabela 
 
+<!--ts-->
  *[Configurando EditorConfig](#ancora1)
  *[Configurando Eslint](#ancora2)
  *[Configurando Prettier](#ancora3)
+<!--te-->
 
 <a id="ancora1"></a>
 ## Configurando .EditorConfig
