@@ -2,7 +2,12 @@
 
 # Tabela 
 
-## .Editor Config
+ *[Configurando EditorConfig](#ancora1)
+ *[Configurando Eslint](#ancora2)
+ *[Configurando Prettier](#ancora3)
+
+<a id="ancora1"></a>
+## Configurando .EditorConfig
 
 ```
 root = true
@@ -16,7 +21,8 @@ insert_final_newline = true
 end_of_line = lf
 ```
 
-## Eslint
+<a id="ancora2"></a>
+## Configurando Eslint
 
 #### Instale as dependencias do eslint
 
@@ -104,12 +110,23 @@ build
     // "semi": ["error", "always"]
 ```
 
+3. Adicione depois de ```rules```
+
+```
+"settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+```
+
 #### Por último, instale a dependencia de reconhecimento de importação do typescript
 
 ```
 yarn add eslint-import-resolver-typescript -D
 ```
 
+<a id="ancora3"></a>
 ##  Configurando Prettier
 
 #### Instale as dependencias
