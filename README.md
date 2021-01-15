@@ -1,46 +1,150 @@
-# Getting Started with Create React App
+# Gobarber-Web-Typescript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tabela 
 
-## Available Scripts
+## .Editor Config
 
-In the project directory, you can run:
+```
+root = true
 
-### `yarn start`
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = lf
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Eslint
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Instale as dependencias do eslint
 
-### `yarn test`
+```yarn add eslint -D```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Depois, inicialize
 
-### `yarn build`
+```yarn eslint --init```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Selecione as opções
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. To check syntax, find problems and enforce code style
+2. Javascript modules (import/export)
+3. React
+4. Typescript? Yes
+5. Browser 
+6. Use a popular style guide 
+7. Airbnb
+8. JSON
+9. Would you like to install them now with npm? No
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Adicionar o s pacotes que foram listados na pergunta de cima
 
-### `yarn eject`
+###### Exemplo
+```
+yarn add -D eslint-plugin-react@^7.20.0 @typescript-eslint/eslint-plugin@latest eslint-config-airbnb@latest eslint-plugin-import@^2.21.2 eslint-plugin-jsx-a11y@^6.3.0 eslint-plugin-react-hooks@^4 @typescript-eslint/parser@latest
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Crie uma pasta chamada ```.eslintignore``` e adicione: 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+**/*.js
+node_modules
+build
+/src/react-app-env.d.ts
+/src/reportWebVitals.ts
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Adicione no ```.eslintrc.json```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Adicione em ```extends```
 
-## Learn More
+```JSON
+"plugin:react/recommended",
+"plugin:@typescript-eslint/recommended"
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Adicione em ```plugins```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```JSON
+"react-hooks"
+```
+
+3. Adicione em ```rules```
+
+```JSON
+"no-use-before-define": "off",
+    "no-unused-expressions": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "no-console": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "import/prefer-default-export": "off",
+    "camelcase": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    // "@typescript-eslint/explicit-functtion-return-type": [
+    //   "error",
+    //   {
+    //     "allowExpressios": true
+    //   }
+    // ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "prettier/prettier": "error"
+    // "max-len": ["error", { "code": 80 }]
+    // "semi": ["error", "always"]
+```
+
+#### Por último, instale a dependencia de reconhecimento de importação do typescript
+
+```
+yarn add eslint-import-resolver-typescript -D
+```
+
+##  Configurando Prettier
+
+#### Instale as dependencias
+
+```
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+```
+
+#### Em ```.eslintrc.json```
+
+1. Adicione em ```extends```
+
+```JSON
+"prettier/@typescript-eslint",
+"plugin:prettier/recommended"
+```
+
+2. Adicione em ```plugins```
+
+```JSON
+"prettier"
+```
+
+3. Adicione em ```rules```
+
+```JSON
+"prettier/prettier": "error"
+```
+
+#### Crie um arquivo chamado ```prettier.config.js``` com essas configs:
+
+```
+module.exports = {
+  singleQuote: true, 
+  trailingComma: 'all',
+	arrowParens: 'avoid',
+}
+```
